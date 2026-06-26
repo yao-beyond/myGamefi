@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
 
 /**
- * CPS-06 · Controller 層（對應 MyXchange 的 ReportController）。
+ * CPS-06 · Controller 層（對應 myGameFi 的 ReportController）。
  *
  * 不變式：
  *  - @WebServlet 入口；以 pathInfo 分派到方法。

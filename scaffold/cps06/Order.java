@@ -2,7 +2,7 @@ package com.example.scaffold.cps06;
 
 /**
  * CPS-06 · DTO 層（最底層）。純資料，不依賴 BO/Cache/DAO/Controller。
- * 注意：domain DTO 在 MyXchange 慣例中不帶後綴（如 Order, Market），
+ * 注意：domain DTO 在 myGameFi 慣例中不帶後綴（如 Order, Market），
  *      但仍視為 *DTO 角色。
  */
 public final class Order {

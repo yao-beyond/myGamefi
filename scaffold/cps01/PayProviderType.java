@@ -3,7 +3,7 @@ package com.example.scaffold.cps01;
 import java.util.Optional;
 
 /**
- * CPS-01 · Enum 註冊表（對應 MyXchange 的 ApiDataProviderType）。
+ * CPS-01 · Enum 註冊表（對應 myGameFi 的 ApiDataProviderType）。
  *
  * 不變式：
  *  - 每個供應商 = 一個 enum 常數，內嵌 lazy-init 的 provider 實例 + 元資料。

@@ -4,7 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.IntSupplier;
 
 /**
- * CPS-01 · Singleton 協調者（對應 MyXchange 的 ApiDataProviderManager）。
+ * CPS-01 · Singleton 協調者（對應 myGameFi 的 ApiDataProviderManager）。
  *
  * 不變式：
  *  - Singleton；對外只暴露委派方法，不暴露 mutable provider 欄位。

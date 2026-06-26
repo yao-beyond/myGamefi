@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CPS-08 · 角色判斷工具（對應 MyXchange 的 ServerInfoUtils）。
+ * CPS-08 · 角色判斷工具（對應 myGameFi 的 ServerInfoUtils）。
  *
  * 不變式：
  *  - 成員資格一律用 bitwise：has(mask, role) = (mask & role.unique()) > 0。

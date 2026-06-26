@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * CPS-07 · 通用 JDBC 工具（對應 MyXchange 的 DbUtils）。
+ * CPS-07 · 通用 JDBC 工具（對應 myGameFi 的 DbUtils）。
  * 與 vendor 無關的共用行為集中於此；方言差異交給 SqlDialect 實作。
  */
 public final class DbUtils {

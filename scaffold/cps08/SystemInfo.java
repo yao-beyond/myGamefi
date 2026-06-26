@@ -1,7 +1,7 @@
 package com.example.scaffold.cps08;
 
 /**
- * CPS-08 · 持有「本機 server 的角色 bitmask」的單例（對應 MyXchange 的 SystemInfo）。
+ * CPS-08 · 持有「本機 server 的角色 bitmask」的單例（對應 myGameFi 的 SystemInfo）。
  *
  * serverType 在啟動時從設定檔/環境變數/DB 載入一次（例如 CUSTOMER|CACHE = 33），
  * 之後唯讀。所有 ServerRoleUtils.isXxxServer() 都讀這裡。

@@ -3,7 +3,7 @@ package com.example.scaffold.cps08;
 import java.util.Optional;
 
 /**
- * CPS-08 · Bitmask Server-Role Partitioning（對應 MyXchange 的 ServerInfoType）。
+ * CPS-08 · Bitmask Server-Role Partitioning（對應 myGameFi 的 ServerInfoType）。
  *
  * 核心：單一 codebase（一份 WAR）部署到多台機器；每台用一個 int bitmask 標記
  *      自己扮演哪些角色，啟動時據此 gate「要開哪些 Cache / Job / endpoint」。

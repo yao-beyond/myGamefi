@@ -1,7 +1,7 @@
 package com.example.scaffold.cps03;
 
 /**
- * CPS-03 · 快取生命週期抽象基底（對應 MyXchange 的 AbstractCache）。
+ * CPS-03 · 快取生命週期抽象基底（對應 myGameFi 的 AbstractCache）。
  *
  * 不變式：
  *  - 定義 init() / update() 生命週期；init() 預設等於首次 update()。

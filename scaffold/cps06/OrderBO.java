@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 /**
- * CPS-06 · BO 業務聚合層（對應 MyXchange 的 EventBO/CustomerBO）。
+ * CPS-06 · BO 業務聚合層（對應 myGameFi 的 EventBO/CustomerBO）。
  *
  * 不變式：
  *  - private 建構子 + 全靜態方法（無狀態 service facade）。

@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.LongConsumer;
 
 /**
- * CPS-03 · 時間戳增量更新的具體快取（對應 MyXchange 的 EventCache）。
+ * CPS-03 · 時間戳增量更新的具體快取（對應 myGameFi 的 EventCache）。
  *
  * 不變式：
  *  - ConcurrentHashMap 儲存熱資料；per-domain ReentrantLock 保護 update。

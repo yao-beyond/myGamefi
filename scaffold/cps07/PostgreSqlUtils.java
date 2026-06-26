@@ -1,7 +1,7 @@
 package com.example.scaffold.cps07;
 
 /**
- * CPS-07 · PostgreSQL 方言實作（對應 MyXchange 的 PostgreSqlUtils）。
+ * CPS-07 · PostgreSQL 方言實作（對應 myGameFi 的 PostgreSqlUtils）。
  * 所有 PostgreSQL 專屬語法只能出現在這裡。
  */
 public final class PostgreSqlUtils implements SqlDialect {

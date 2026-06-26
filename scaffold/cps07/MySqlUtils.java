@@ -1,7 +1,7 @@
 package com.example.scaffold.cps07;
 
 /**
- * CPS-07 · MySQL 方言實作（對應 MyXchange 的 MySqlUtils）。
+ * CPS-07 · MySQL 方言實作（對應 myGameFi 的 MySqlUtils）。
  * 所有 MySQL 專屬語法只能出現在這裡。
  */
 public final class MySqlUtils implements SqlDialect {

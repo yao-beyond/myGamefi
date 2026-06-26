@@ -1,7 +1,7 @@
 package com.example.scaffold.cps01;
 
 /**
- * CPS-01 · Provider-Enum-Registry 的抽象基底（對應 MyXchange 的 ApiDataProvider）。
+ * CPS-01 · Provider-Enum-Registry 的抽象基底（對應 myGameFi 的 ApiDataProvider）。
  *
  * 不變式：
  *  - 必須是 abstract class（非 interface），方法簽名固定。

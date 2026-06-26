@@ -3,7 +3,7 @@ package com.example.scaffold.cps02;
 import java.util.Optional;
 
 /**
- * CPS-02 · Domain Type Enum（對應 MyXchange 的 228 個 *Type）。
+ * CPS-02 · Domain Type Enum（對應 myGameFi 的 228 個 *Type）。
  *
  * 不變式（統一骨架，所有 *Type 都長這樣）：
  *  - private final int value + getValue()

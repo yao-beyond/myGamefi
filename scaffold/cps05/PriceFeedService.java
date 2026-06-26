@@ -13,7 +13,7 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 /**
- * CPS-05 · 單執行緒 WebSocket 廣播（對應 MyXchange 的 MarketPriceService）。
+ * CPS-05 · 單執行緒 WebSocket 廣播（對應 myGameFi 的 MarketPriceService）。
  *
  * 不變式：
  *  - @ServerEndpoint；連線集合用 ConcurrentHashMap<id, Session>。
