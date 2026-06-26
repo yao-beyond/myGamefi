@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="360" viewBox="0 0 1180 360" font-family="'PingFang TC','Heiti TC','Noto Sans CJK TC',sans-serif">
+  <rect width="1180" height="360" fill="#FAF9F6"/>
+  <text x="590" y="44" text-anchor="middle" font-size="22" font-weight="700" fill="#1B2A24">ADAF 治理閉環 · 正式系統經驗 → 可審查交付</text>
+  <text x="590" y="76" text-anchor="middle" font-size="13" fill="#5A5A52">把架構經驗寫成規格，讓 AI 依規格產出，再用機器驗證是否走樣 —— AI 被流程與規範治理，不是取代工程師。</text>
+
+  <!-- 連接箭頭（先畫線，框疊在上層遮端點） -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1B2A24"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#B8860B"/>
+    </marker>
+  </defs>
+  <g stroke="#1B2A24" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="210" y1="195" x2="252" y2="195"/>
+    <line x1="435" y1="195" x2="477" y2="195"/>
+    <line x1="660" y1="195" x2="702" y2="195"/>
+    <line x1="885" y1="195" x2="927" y2="195"/>
+  </g>
+
+  <!-- 回授（未過→回規格） -->
+  <path d="M795,240 L795,310 L345,310 L345,242" fill="none" stroke="#B8860B" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arrowGold)"/>
+  <text x="570" y="304" text-anchor="middle" font-size="12" fill="#B8860B">未過 → 回規格修正（不只改報告）</text>
+
+  <!-- 5 個節點 -->
+  <!-- n1 -->
+  <rect x="30" y="150" width="180" height="90" rx="8" fill="#E0F2F1" stroke="#1B2A24" stroke-width="1.5"/>
+  <text x="120" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#1B2A24">正式系統經驗</text>
+  <text x="120" y="202" text-anchor="middle" font-size="10" fill="#5A5A52">Production-Proven Practices</text>
+  <text x="120" y="220" text-anchor="middle" font-size="10" fill="#5A5A52">高並發交易後端的架構慣例</text>
+
+  <!-- n2 -->
+  <rect x="255" y="150" width="180" height="90" rx="8" fill="#E0F2F1" stroke="#1B2A24" stroke-width="1.5"/>
+  <text x="345" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#1B2A24">架構規格</text>
+  <text x="345" y="202" text-anchor="middle" font-size="10" fill="#5A5A52">Manifest（領域宣告）</text>
+  <text x="345" y="220" text-anchor="middle" font-size="10" fill="#5A5A52">先宣告領域，杜絕自由發揮</text>
+
+  <!-- n3 -->
+  <rect x="480" y="150" width="180" height="90" rx="8" fill="#E0F2F1" stroke="#1B2A24" stroke-width="1.5"/>
+  <text x="570" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#1B2A24">AI 產生骨架</text>
+  <text x="570" y="202" text-anchor="middle" font-size="10" fill="#5A5A52">Scaffold（樣板重現）</text>
+  <text x="570" y="220" text-anchor="middle" font-size="10" fill="#5A5A52">依規格確定性重現架構</text>
+
+  <!-- n4 -->
+  <rect x="705" y="150" width="180" height="90" rx="8" fill="#E0F2F1" stroke="#1B2A24" stroke-width="1.5"/>
+  <text x="795" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#1B2A24">機器驗證</text>
+  <text x="795" y="202" text-anchor="middle" font-size="10" fill="#5A5A52">Conformance（ArchUnit）</text>
+  <text x="795" y="220" text-anchor="middle" font-size="10" fill="#5A5A52">規則被機器檢查，不靠手感</text>
+
+  <!-- n5 -->
+  <rect x="930" y="150" width="180" height="90" rx="8" fill="#1B2A24" stroke="#1B2A24" stroke-width="1.5"/>
+  <text x="1020" y="180" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">可審查交付</text>
+  <text x="1020" y="202" text-anchor="middle" font-size="10" fill="#CFE3DD">Auditable Delivery</text>
+  <text x="1020" y="220" text-anchor="middle" font-size="10" fill="#CFE3DD">可治理 · 可審查 · 可追責</text>
+</svg>

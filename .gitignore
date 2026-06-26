@@ -1,0 +1,11 @@
+# OS / editor cruft
+.DS_Store
+*.swp
+
+# OMC / agent session state — never publish (may contain transcripts & paths)
+.omc/
+
+# Build artifacts
+out/
+target/
+*.class
