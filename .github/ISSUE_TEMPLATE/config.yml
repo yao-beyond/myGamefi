@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 先看文件
+    url: https://github.com/yao-beyond/myGamefi#readme
+    about: 開 issue 前，README / QUICKSTART / FAQ / GLOSSARY 可能已有答案
+  - name: 💬 一般討論 / 提問
+    url: https://github.com/yao-beyond/myGamefi/discussions
+    about: 不確定是不是 bug、想討論用法或方向，來這裡聊
