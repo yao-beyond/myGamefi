@@ -1,5 +1,17 @@
 # ADAF — AI 架構生成框架
 
+[![License: MIT](https://img.shields.io/github/license/yao-beyond/myGamefi)](LICENSE)
+[![Java](https://img.shields.io/badge/Java-8-blue.svg)](#)
+[![Tests](https://img.shields.io/badge/tests-15%20passing-brightgreen.svg)](examples/payout-service)
+[![Last commit](https://img.shields.io/github/last-commit/yao-beyond/myGamefi)](https://github.com/yao-beyond/myGamefi/commits/main)
+[![Stars](https://img.shields.io/github/stars/yao-beyond/myGamefi?style=social)](https://github.com/yao-beyond/myGamefi/stargazers)
+
+🔗 **Repo**: https://github.com/yao-beyond/myGamefi
+
+```bash
+git clone https://github.com/yao-beyond/myGamefi.git
+```
+
 > **一句話**：把一套成熟後端的架構規則寫成「AI 看得懂、機器測得出」的規格——讓 AI 照著生成程式，再用測試擋住走樣。
 
 **白話比喻**：它像給 AI 的一份「蓋房子的施工規範 + 標準圖 + 驗收清單」。你說要蓋什麼，AI 照圖施工，最後驗收測試自動檢查有沒有照規範蓋。
