@@ -12,7 +12,7 @@ AI 生成程式碼後跑這套，架構漂移就會 fail。
 <dependency>
     <groupId>com.tngtech.archunit</groupId>
     <artifactId>archunit-junit4</artifactId>
-    <version>1.3.0</version>   <!-- 1.3.x 相容 Java 8 runtime -->
+    <version>1.4.1</version>   <!-- 需 Java 8+；在 JDK 21 上正常運作 -->
     <scope>test</scope>
 </dependency>
 ```
@@ -73,7 +73,7 @@ AI 生成程式碼後跑這套，架構漂移就會 fail。
 ## 6. 驗證紀錄
 
 本套規則已用「合規 fixture」實跑通過（`OK (11 tests)`），並以注入違規確認會擋下
-（`new XxxProvider()` 於 BO、Controller 直呼 DAO → 2 failures）。ArchUnit 1.3.0 / JUnit 4.12 / `--release 8`。
+（`new XxxProvider()` 於 BO、Controller 直呼 DAO → 2 failures）。ArchUnit 1.4.1 / JUnit 4.12 / JDK 21（`--release 21`）。
 
 > 已知陷阱：enum 常數帶 body 會編譯成匿名子類（simpleName 為空），故 provider 實例化規則
 > 用 **package 判斷**而非類名後綴，避免把註冊表 enum 內的合法 `new` 誤判成違規。

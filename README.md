@@ -1,7 +1,7 @@
 # ADAF — AI 架構生成框架
 
 [![License: MIT](https://img.shields.io/github/license/yao-beyond/myGamefi)](LICENSE)
-[![Java](https://img.shields.io/badge/Java-8-blue.svg)](#)
+[![Java](https://img.shields.io/badge/Java-21-blue.svg)](#)
 [![CI](https://github.com/yao-beyond/myGamefi/actions/workflows/ci.yml/badge.svg)](https://github.com/yao-beyond/myGamefi/actions/workflows/ci.yml)
 [![Last commit](https://img.shields.io/github/last-commit/yao-beyond/myGamefi)](https://github.com/yao-beyond/myGamefi/commits/main)
 [![Stars](https://img.shields.io/github/stars/yao-beyond/myGamefi?style=social)](https://github.com/yao-beyond/myGamefi/stargazers)

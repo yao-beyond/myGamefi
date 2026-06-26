@@ -19,7 +19,7 @@ mvn test          # 11 條 conformance + 4 條行為測試，必須全綠
 
 ## 開發前置
 
-- JDK 8（樣板與 conformance 以 Java 8 為基準）
+- JDK 21（樣板與 conformance 以 Java 21 為基準；語法保守，降到 JDK 8 也能編）
 - Maven 3.6+
 
 ---
