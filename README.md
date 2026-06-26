@@ -51,6 +51,7 @@ Tests run: 15, Failures: 0
 | 🛡️ **只想加 CI 架構守門** | [`scaffold/conformance/`](scaffold/conformance/) |
 | 🏛️ **想看完整規格 / 維護框架** | [ARCH_BLUEPRINT.md](ARCH_BLUEPRINT.md) |
 | ❓ **名詞看不懂 / 有疑問** | [GLOSSARY.md](GLOSSARY.md)、[FAQ.md](FAQ.md) |
+| 💬 **想討論 / 提問 / 打招呼** | [Discussions 歡迎貼文](https://github.com/yao-beyond/myGamefi/discussions/1) |
 
 ---
 
