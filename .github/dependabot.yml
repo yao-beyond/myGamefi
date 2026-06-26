@@ -1,0 +1,30 @@
+version: 2
+updates:
+  # 範例專案的 Maven 依賴（含 ArchUnit、JUnit、servlet/websocket API）
+  - package-ecosystem: "maven"
+    directory: "/examples/payout-service"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "deps"
+    groups:
+      # 把測試/架構工具的小幅更新併成一個 PR，減少噪音
+      test-tooling:
+        patterns:
+          - "com.tngtech.archunit:*"
+          - "junit:*"
+          - "org.apache.maven.plugins:maven-surefire-plugin"
+
+  # GitHub Actions（actions/checkout、setup-java 等）
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
