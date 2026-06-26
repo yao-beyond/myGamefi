@@ -1,10 +1,13 @@
-# ADAF — AI-Driven Architecture Framework
+# ADAF — 完整架構規格（給 AI agent 與架構維護者）
 
-> 本文件是一套「架構生成憲法」。把它交給一個 AI（Claude / GPT），AI 依此即可在新專案中
-> 重現 MyXchange 的架構風格與實作模式。
+> ⚠️ **第一次來？先看 [QUICKSTART.md](QUICKSTART.md)（5 分鐘）與 [README.md](README.md)。**
+> 本文件是**完整規格**（俗稱「憲法」），內容較重，主要給 AI agent 讀、或給維護框架的人參考。
+> 名詞看不懂請查 [GLOSSARY.md](GLOSSARY.md)。
+>
+> 把本文件交給一個 AI（Claude / GPT），AI 依此即可在新專案重現同一套架構風格與實作模式。
 >
 > **核心信條**：自然語言只描述「意圖」；真正能讓 AI *確定性重現* 的是
-> **Manifest（領域宣告）→ Scaffold（樣板）→ Conformance（可機器檢查的規則）**。
+> **Manifest（需求宣告）→ Scaffold（樣板）→ Conformance（可機器檢查的規則）**。
 > 風格不是品味，是規則。
 
 ---

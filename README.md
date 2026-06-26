@@ -1,135 +1,120 @@
-# ADAF — AI-Driven Architecture Framework
+# ADAF — AI 架構生成框架
 
-> 把一套正式交易後端的架構經驗，變成 **AI 能確定性重現、機器能驗證**的治理系統。
->
-> 這個 repo 不是要教你寫程式，而是要證明一件事：當 AI 參與架構生成時，產出可以**被規範、被檢查、被追責**，而不是靠工程師的個人手感。
+> **一句話**：把一套成熟後端的架構規則寫成「AI 看得懂、機器測得出」的規格——讓 AI 照著生成程式，再用測試擋住走樣。
 
----
+**白話比喻**：它像給 AI 的一份「蓋房子的施工規範 + 標準圖 + 驗收清單」。你說要蓋什麼，AI 照圖施工，最後驗收測試自動檢查有沒有照規範蓋。
 
-## What this proves — 這個 repo 證明了什麼
-
-多數工程師證明的是「我能寫出來」。ADAF 證明的是另一個層級的能力：
-
-- **我能定義什麼叫「寫對」，並讓機器檢查它。** 架構慣例不是口頭品味，而是 11 條可機器驗證的規則。
-- **我能約束 AI，而不只是使喚 AI。** 同一份規格餵給 AI，能確定性重現同一套架構；走樣會被測試擋下。
-- **我能把企業級系統經驗，產品化成可重複套用的方法。** 不是一次性的高手交付，而是下次、別人、別的領域都能重現的流程。
-
-對需要導入 AI 的團隊來說，真正的問題不是「AI 能不能做」，而是「AI 做出來的東西**能不能控**」。ADAF 是回答這個問題的證據。
+它**不是**一個你 `import` 的程式庫，而是一份**規格 + 樣板 + 測試**，餵給 AI（Claude / GPT）用。
 
 ---
 
-## Governance Loop — 治理閉環
+## ⚡ 60 秒 Quickstart
 
-ADAF 的核心是一條閉環，而不是一堆技術零件：
+先跑一次「綠燈範例」，親眼看到框架在運作：
 
-![ADAF 治理閉環：正式系統經驗 → 架構規格 → AI 產生骨架 → 機器驗證 → 可審查交付](system_design/adaf-governance-loop.png)
+```bash
+git clone https://github.com/yao-beyond/myGamefi.git
+cd myGamefi/examples/payout-service
+mvn test
+```
 
-> 原始可編輯檔：[`system_design/adaf-governance-loop.drawio`](system_design/adaf-governance-loop.drawio)（用 [draw.io](https://app.diagrams.net) 開啟）
+你會看到（全綠）：
+```
+Tests run: 15, Failures: 0
+  ├─ 11 條架構合規測試（ArchUnit）通過 ← 架構沒走樣
+  └─ 4 條行為測試通過               ← 功能正確
+```
 
-每一步都白話可懂：
-
-1. **正式系統經驗** — 規則的來源是一個真實的高並發交易後端，不是教科書理論。
-2. **架構規格（Manifest）** — AI 動手前先用一份宣告把領域講清楚，杜絕自由發揮；未知項標 `TODO_DECISION`，不准亂猜。
-3. **AI 產生骨架（Scaffold）** — AI 依規格與參考樣板重現結構、命名與不變式。
-4. **機器驗證（Conformance）** — ArchUnit 測試檢查架構有沒有走樣；沒過就退回，**不准只改報告**。
-5. **可審查交付** — 最終交付的不只是一包程式碼，而是一套可被檢查的工作方式。
+這就是 ADAF 的核心：**AI 生成的程式碼，能被測試自動驗收**。完整 5 分鐘上手見 **[QUICKSTART.md](QUICKSTART.md)**。
 
 ---
 
-## Manifest → Scaffold → Conformance — 三段怎麼運作
+## 🧭 選一條路
 
-| 階段 | 角色 | 落在哪 |
+| 你是… | 從這裡開始 |
+|---|---|
+| 👤 **想快速試用的開發者** | [QUICKSTART.md](QUICKSTART.md) → [`examples/payout-service/`](examples/payout-service/) |
+| 📖 **想照著做一遍的人** | [USAGE.md](USAGE.md)（完整教學：從需求到一個功能） |
+| 🤖 **要讓 AI 依框架生成程式** | [AI_CONTEXT.md](AI_CONTEXT.md)（貼進 AI context）+ [PROMPTS.md](PROMPTS.md)（可複製指令） |
+| 🛡️ **只想加 CI 架構守門** | [`scaffold/conformance/`](scaffold/conformance/) |
+| 🏛️ **想看完整規格 / 維護框架** | [ARCH_BLUEPRINT.md](ARCH_BLUEPRINT.md) |
+| ❓ **名詞看不懂 / 有疑問** | [GLOSSARY.md](GLOSSARY.md)、[FAQ.md](FAQ.md) |
+
+---
+
+## 它怎麼運作：規格 → 樣板 → 測試
+
+三件事，缺一不可：
+
+| 階段 | 白話 | 正式名 | 落在哪 |
+|---|---|---|---|
+| 1️⃣ 規格 | AI 動手前先把需求寫成清單，不准亂猜 | **Manifest** | [`ARCH_BLUEPRINT.md`](ARCH_BLUEPRINT.md) 第 4 章 |
+| 2️⃣ 樣板 | AI 照 8 份參考程式碼複製結構 | **Scaffold** | [`scaffold/`](scaffold/) |
+| 3️⃣ 測試 | 機器檢查架構有沒有走樣，沒過就退回 | **Conformance** | [`scaffold/conformance/`](scaffold/conformance/) |
+
+> 核心信條：自然語言只描述「意圖」；真正讓 AI 確定性重現的是 **規格 → 樣板 → 測試**。**風格不是品味，是規則。**
+
+---
+
+## 規範了哪些架構決策（8 個模式）
+
+每個模式（**CPS** = 架構模式編號，CPS-01~08）重點不在名字，而在它擋掉哪個**會失控的問題**：
+
+| CPS | 模式 | 解決什麼問題 |
 |---|---|---|
-| **Manifest** | 生成前的領域宣告（YAML DSL），強制先講清楚 provider／type／cache／DB | [`ARCH_BLUEPRINT.md`](ARCH_BLUEPRINT.md) 第 4 章 |
-| **Scaffold** | 8 個模式各一份可編譯參考實作，AI 依樣套用結構與不變式 | [`scaffold/`](scaffold/) |
-| **Conformance** | 11 條 ArchUnit fitness functions，把自審清單變成 CI 可擋的測試 | [`scaffold/conformance/`](scaffold/conformance/) |
-
-> 核心信條：自然語言只描述「意圖」；真正讓 AI 確定性重現的是 **Manifest → Scaffold → Conformance**。**風格不是品味，是規則。**
-
----
-
-## Patterns covered — 規範了哪些架構決策
-
-8 個從正式環境淬煉的模式（**CPS** = Canonical Pattern Spec，編號 CPS-01 ~ CPS-08）。每個模式重點不在它的名字，而在它解決哪個**會失控的管理問題**：
-
-| CPS | 模式 | 解決什麼管理問題 |
-|---|---|---|
-| 01 | Provider-Enum-Registry + Singleton Manager | 換供應商／通道時，能不能**不停機、不出半初始化狀態** |
+| 01 | Provider 註冊表 + 單例 Manager | 換供應商時**不停機、不出半初始化狀態** |
 | 02 | Domain Type Enum | 型別分支邏輯散落各處，**改一個漏一個** |
-| 03 | AbstractCache + 時間戳增量更新 | 大量熱資料的記憶體快取，**併發更新會不會錯亂** |
-| 04 | Hierarchical Entity Nesting | 樹狀領域資料，**父子層級會不會不一致** |
-| 05 | Single-Thread WebSocket Broadcast | 實時推送，**慢連線會不會拖垮全體、訊息會不會亂序** |
-| 06 | Layered + Naming Convention | 分層依賴**會不會回呼、命名會不會漂移** |
-| 07 | DAO + Dialect Utility Separation | 多資料庫，**方言差異會不會散落、會不會 SQL injection** |
-| 08 | Bitmask Server-Role Partitioning | 單一 codebase 部署多角色，**啟用什麼、級聯通知誰，會不會做白工或漏通知**（見[系統結構範例](system_design/system-structure.md)） |
+| 03 | AbstractCache + 時間戳增量更新 | 大量熱資料快取，**併發更新會不會錯亂** |
+| 04 | 階層式 Entity 巢狀 | 樹狀資料，**父子層級會不會不一致** |
+| 05 | 單執行緒 WebSocket 廣播 | 實時推送，**慢連線會不會拖垮全體、訊息會不會亂序** |
+| 06 | 分層 + 命名契約 | 分層依賴**會不會回呼、命名會不會漂移** |
+| 07 | DAO + 方言隔離 | 多資料庫，**方言差異會不會散落、會不會 SQL injection** |
+| 08 | Bitmask 角色分區 | 單一 codebase 多角色部署，**會不會做白工或漏通知**（見[系統結構範例](system_design/system-structure.md)） |
 
-![ADAF 分層架構：Controller/WebSocketService → BO → Cache → DAO → DTO/Entity → DB，橫切 Manager／Type enum／Utils，標出 CPS-01~07 落點](system_design/adaf-architecture.png)
-
-> 原始可編輯檔：[`system_design/adaf-architecture.drawio`](system_design/adaf-architecture.drawio) — 分層依賴架構與 7 個 CPS 落點。
+![ADAF 分層架構：Controller/WebSocketService → BO → Cache → DAO → DTO/Entity → DB](system_design/adaf-architecture.png)
 
 ---
 
-## Example verification result — 驗證證據
-
-不是「我說有照規範」，而是有機器跑出來的結果：
+## 驗證證據（不是「我說有照規範」）
 
 ```
 $ mvn test -Dadaf.basePackage=com.example.app
 OK (11 tests)
 ```
+- **合規碼：** 11 條規則全通過。
+- **故意寫違規碼**（BO 內 `new XxxProvider()`、Controller 直呼 DAO）→ 測試**擋下 2 failures**。
 
-- **合規 fixture：** 11 條規則全數通過（`OK (11 tests)`）。
-- **故意注入違規：** 在 BO 內 `new XxxProvider()`、Controller 直呼 DAO → 測試**擋下 2 failures**。
-- 環境：ArchUnit 1.3.0 / JUnit 4.12 / `--release 8`。
-
-也就是說，這套規則**過得了合規碼、擋得住違規碼**——fail-closed，不是裝飾用的綠燈。語句層級反模式（如 `switch(typeId)`）ArchUnit 看不到的，另用 Checkstyle / PMD regex 補上，細節見 [`scaffold/conformance/README.md`](scaffold/conformance/README.md)。
-
----
-
-## Why this matters for AI adoption — 為什麼這對 AI 落地重要
-
-把 AI 接進開發流程，企業真正怕的不是「AI 不夠快」，而是：
-
-- AI 生成的程式碼**沒人能保證符合架構規範**，半年後變技術債。
-- 每次品質靠當下那個人的手感，**換人或換 AI 就走樣**。
-- 出事的時候，**講不清楚哪一步沒守規矩、誰該負責**。
-
-ADAF 把這三件事都收進閉環：規範寫成規格、AI 依規格產出、機器驗證有沒有走樣、交付的是可審查的證據。這就是「**AI 被流程與規範治理**」，而不是「AI 取代工程師」。
-
----
-
-## 怎麼用（給 AI 與 reviewer）
-
-1. 讓 AI 讀 [`ARCH_BLUEPRINT.md`](ARCH_BLUEPRINT.md)：原則 → 命名契約 → 決策樹 → 對應 Pattern Card。
-2. 接到新需求時，嚴格依序執行第 6 章「The Golden Flow」九步演算法（讀需求 → 寫 Manifest → 生 domain 詞彙 → 生分層骨架 → 生 provider/cache/DAO/endpoint → 跑 conformance → 出報告）。
-3. 對照 [`scaffold/`](scaffold/) 套用結構與不變式。
-4. 用第 7 章自審清單 +  [`scaffold/conformance/`](scaffold/conformance/) 驗證，未過則回到對應步驟修正。
-
-> 給人類 reviewer：把本 README + `ARCH_BLUEPRINT.md` 放進 agent 的 context（或專案的 `CLAUDE.md` / `AGENTS.md`），即可讓 AI 持續遵循。
-
-### Conformance 快速開始
-
-```bash
-# 1. 目標專案加入 ArchUnit（test scope）：com.tngtech.archunit:archunit-junit4:1.3.0
-# 2. 放入 scaffold/conformance/ArchitectureConformanceTest.java
-# 3. 指定 base package 後執行
-mvn test -Dadaf.basePackage=com.yourcompany.yourapp
-```
+fail-closed，不是裝飾用的綠燈。細節見 [`scaffold/conformance/README.md`](scaffold/conformance/README.md)。
 
 ---
 
 ## Repo 構成
 
-| 路徑 | 內容 |
-|---|---|
-| [`USAGE.md`](USAGE.md) | 上手指南：三種用法 + 一個完整 worked example（從需求 → Golden Flow 九步 → conformance） |
-| [`examples/payout-service/`](examples/payout-service/) | 依框架生成的**可編譯、可測試**迷你專案（`mvn test` 全綠：11 conformance + 4 行為驗收） |
-| [`ARCH_BLUEPRINT.md`](ARCH_BLUEPRINT.md) | 主文件：架構原則、命名契約、8 張 Pattern Card、Manifest DSL、決策樹、9 步生成演算法、自審清單、護欄 |
-| [`scaffold/`](scaffold/) | 8 個 CPS 的可編譯參考實作 |
-| [`scaffold/conformance/`](scaffold/conformance/) | 11 條 ArchUnit fitness functions |
-| [`system_design/`](system_design/) | 架構圖（`.drawio`）、[系統結構範例](system_design/system-structure.md)、Provider/Manager 設計說明 |
+| 路徑 | 內容 | 給誰 |
+|---|---|---|
+| [`QUICKSTART.md`](QUICKSTART.md) | 5 分鐘上手 | 👤 新手 |
+| [`USAGE.md`](USAGE.md) | 完整教學 + worked example | 👤 開發者 |
+| [`AI_CONTEXT.md`](AI_CONTEXT.md) | 給 AI agent 的最小入口 | 🤖 AI |
+| [`PROMPTS.md`](PROMPTS.md) | 可複製的 AI 指令 | 🤖 AI / 👤 |
+| [`GLOSSARY.md`](GLOSSARY.md) ・ [`FAQ.md`](FAQ.md) | 術語白話表 / 常見問題 | 👤 所有人 |
+| [`ARCH_BLUEPRINT.md`](ARCH_BLUEPRINT.md) | 完整架構規格（憲法） | 🤖 AI / 架構維護者 |
+| [`scaffold/`](scaffold/) ・ [`scaffold/conformance/`](scaffold/conformance/) | 8 個樣板 / 11 條 ArchUnit 測試 | 🤖 / 👤 |
+| [`examples/payout-service/`](examples/payout-service/) | 可 `mvn test` 的綠燈範例 | 👤 開發者 |
+| [`system_design/`](system_design/) | 架構圖、[系統結構範例](system_design/system-structure.md) | 👤 |
 
-> 範例領域用通用電商（Payment / Order / Product / Catalog / PriceFeed）示範，與任何特定產業無關——替換成你的領域即可。
+> 範例領域用通用電商（Payment / Order / Product）示範，與任何特定產業無關——替換成你的領域即可。
+
+---
+
+## 為什麼這重要（給評估導入的人）
+
+把 AI 接進開發流程，企業真正怕的不是「AI 不夠快」，而是 AI 生成的程式碼**沒人能保證符合架構規範**、**換人或換 AI 就走樣**、出事時**講不清誰沒守規矩**。
+
+ADAF 把這三件事收進一條閉環——規範寫成規格、AI 依規格產出、機器驗證走樣、交付可審查的證據：
+
+![ADAF 治理閉環](system_design/adaf-governance-loop.png)
+
+這是「**AI 被流程與規範治理**」，而不是「AI 取代工程師」。
 
 ---
 
@@ -139,4 +124,4 @@ mvn test -Dadaf.basePackage=com.yourcompany.yourapp
 
 ---
 
-由 **曾敬堯・堯策 YAO/CE** 維護。堯策的定位是「先理順流程，再談 AI 落地」；ADAF 是這套方法可落地的技術佐證之一，不是一個待售產品。（顧問門面待補）
+由 **曾敬堯・堯策 YAO/CE** 維護。堯策的定位是「先理順流程，再談 AI 落地」；ADAF 是這套方法可落地的技術佐證之一。

@@ -1,8 +1,10 @@
-# USAGE — 怎麼用 ADAF 框架（含完整 worked example）
+# USAGE — 完整教學（含 worked example）
 
-> 先讀 [`README.md`](README.md) 了解全貌，本檔給你**可照抄的實戰流程**。
+> 👉 只想快速試？先看 [QUICKSTART.md](QUICKSTART.md)（5 分鐘）。本檔是**完整教學**，帶你從需求走到一個功能。
+> 名詞看不懂查 [GLOSSARY.md](GLOSSARY.md)。
+>
 > 心智模型：這不是你 `import` 的程式庫，而是**交給 AI 的架構生成規格**——
-> Blueprint（憲法）→ Scaffold（樣板）→ Conformance（機器驗證）。
+> 規格（Blueprint）→ 樣板（Scaffold）→ 測試（Conformance）。
 
 ---
 
