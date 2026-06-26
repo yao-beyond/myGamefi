@@ -122,6 +122,7 @@ mvn test -Dadaf.basePackage=com.yourcompany.yourapp
 
 | 路徑 | 內容 |
 |---|---|
+| [`USAGE.md`](USAGE.md) | 上手指南：三種用法 + 一個完整 worked example（從需求 → Golden Flow 九步 → conformance） |
 | [`ARCH_BLUEPRINT.md`](ARCH_BLUEPRINT.md) | 主文件：架構原則、命名契約、8 張 Pattern Card、Manifest DSL、決策樹、9 步生成演算法、自審清單、護欄 |
 | [`scaffold/`](scaffold/) | 8 個 CPS 的可編譯參考實作 |
 | [`scaffold/conformance/`](scaffold/conformance/) | 11 條 ArchUnit fitness functions |
