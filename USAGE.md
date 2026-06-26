@@ -244,3 +244,14 @@ mvn test -Dadaf.basePackage=com.example.app
 - ❌ 為了「現代化」偷渡 Spring/DI/ORM → 框架明令禁止（The Nevers）。
 
 > 完整不變式與驗收條件見 `ARCH_BLUEPRINT.md` 第 3 章各 Pattern Card 與第 7、8 章。
+
+---
+
+## 5. 這個範例的「綠燈樣本」
+
+上面整套 Payout 已實作成可編譯、可測試的迷你專案：[`examples/payout-service/`](examples/payout-service/)。
+
+```bash
+cd examples/payout-service && mvn test   # 11 conformance + 4 行為驗收，全綠
+```
+把它當你新專案的起點，照著加功能即可。
