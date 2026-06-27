@@ -17,10 +17,18 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 只自動合併 patch / minor；major 留人工審查。
+      # 自動合併條件：
+      #  - 任何依賴的 patch / minor 更新，或
+      #  - 開發/測試依賴（dev deps，例如 ArchUnit/JUnit/surefire）的任何更新——
+      #    這些不影響 production runtime，且 CI 會擋（升級弄壞編譯/測試就紅燈，不會合）。
+      # production 依賴的 major 更新留人工審查。
+      # 注意：grouped 更新的 update-type 取組內最高等級，故 dev-deps 分支可涵蓋被歸為 major 的測試工具組。
       # 啟用 auto-merge 後，仍須等分支保護要求的 CI（Conformance + behaviour tests）通過才會真正合併。
-      - name: Enable auto-merge for patch & minor updates
-        if: steps.meta.outputs.update-type == 'version-update:semver-patch' || steps.meta.outputs.update-type == 'version-update:semver-minor'
+      - name: Enable auto-merge
+        if: >-
+          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+          steps.meta.outputs.update-type == 'version-update:semver-minor' ||
+          steps.meta.outputs.dependency-type == 'direct:development'
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
